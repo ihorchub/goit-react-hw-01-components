@@ -1,16 +1,16 @@
-import Profile from './Profile/profile';
+import { Profile } from './Profile/profile';
 import user from './Profile/user.json';
+import { Statistics } from './Statistics/Statistics';
+import data from './Statistics/data.json';
+import { FriendList } from './FriendList/FriendList';
+import friends from './FriendList/friends.json';
 
 export const App = () => {
   return (
-    <Profile
-      avatar={user.avatar}
-      username={user.username}
-      tag={user.tag}
-      location={user.location}
-      followers={user.stats.followers}
-      views={user.stats.views}
-      likes={user.stats.likes}
-    />
+    <div>
+      <Profile user={user} />
+      <Statistics title="Upload stats" stats={data} />
+      <FriendList friends={friends} />
+    </div>
   );
 };
