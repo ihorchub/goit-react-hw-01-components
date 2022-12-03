@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import css from './Statistics.module.css';
 import { StatisticsItem } from './StatisticsItem';
+import { getRandomHexColor } from 'utils/getRandomHexColor';
 
 export const Statistics = ({ stats, title }) => {
   return (
@@ -9,7 +10,11 @@ export const Statistics = ({ stats, title }) => {
 
       <ul className={css.statList}>
         {stats.map(item => (
-          <li key={item.id} className={css.item}>
+          <li
+            key={item.id}
+            className={css.item}
+            style={{ backgroundColor: [getRandomHexColor()] }}
+          >
             <StatisticsItem item={item} />
           </li>
         ))}

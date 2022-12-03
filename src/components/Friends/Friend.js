@@ -2,9 +2,16 @@ import PropTypes from 'prop-types';
 import css from './Friend.module.css';
 
 export const Friend = ({ friend: { avatar, name, isOnline } }) => {
+  const changeStatus = isOnline => (isOnline ? 'green' : 'red');
+
   return (
     <>
-      <span className={css.status}>{isOnline}</span>
+      <span
+        className={css.status}
+        style={{ backgroundColor: [changeStatus(isOnline)] }}
+      >
+        {isOnline}
+      </span>
       <img className={css.avatar} src={avatar} alt="User avatar" width="48" />
       <p className={css.name}>{name}</p>
     </>
